@@ -4,7 +4,7 @@ import styles from './hostListItem.module.scss';
 export default function TabContent({ tab, setTab }) {
   return (
 {[    <div>
-    <h3 className={styles.location}> 경기 펜션</h3>
+    <h3 className={styles.location}> 경주 펜션</h3>
     <ul className={styles.itemList}>
       <hostListItem tab={tab} setTab={setTab} />
     </ul>
