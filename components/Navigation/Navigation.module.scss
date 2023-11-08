@@ -1,0 +1,35 @@
+@import '@/styles/index.scss';
+.nav {
+  width: 100%;
+
+  background: #eee;
+  position: fixed;
+  left: 50%;
+  transform: translate(-50%);
+  bottom: 0;
+  box-shadow: 0 0 0.4rem 0 rgba(0, 0, 0, 0.16);
+  background: #fff;
+}
+.inner {
+  max-width: 76.8rem;
+  width: 100%;
+  margin: 0 auto;
+  @include flex-center-row;
+  justify-content: space-between;
+
+  .menu {
+    display: block;
+    width: 25%;
+    text-align: center;
+    // background: #ff0;
+    @include flex-center-col;
+    .icon {
+      font-size: 1.6rem;
+      padding-top: 1rem;
+      // color: #151515;
+    }
+    :hover {
+      color: $brand-color;
+    }
+  }
+}

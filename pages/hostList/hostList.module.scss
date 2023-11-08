@@ -1,4 +1,30 @@
 @import '@/styles/index.scss';
+
 .container {
   @include container;
+  // background: #eee;
+  height: 100vh;
+  padding: 2rem;
+
+  .title {
+    color: #ff3478;
+    color: $text-color;
+    font-weight: bold;
+    border-bottom: 1px solid #ff3478;
+    padding: 2rem;
+    background: #ff3478;
+    color: #fff;
+    text-align: center;
+  }
+  .location {
+    display: inline-block;
+    color: $text-color;
+  }
+  .itemList {
+    @include flex-center-row;
+    flex-wrap: wrap;
+    gap: 1rem;
+    flex: 1;
+    width: 100%;
+  }
 }

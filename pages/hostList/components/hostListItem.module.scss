@@ -1,0 +1,29 @@
+@import '@/styles/index.scss';
+
+.item {
+  @include flex-center-col;
+  gap: 1rem;
+  border: 1px solid #e6e6e6;
+  border-radius: 10px;
+  padding: 2rem;
+  box-sizing: border-box;
+  .hostImg {
+    width: 7rem;
+    border-radius: 50px;
+  }
+  .name {
+    font-weight: bold;
+    margin-top: 0;
+  }
+  .btn {
+    border-radius: 5px;
+    padding: 1rem 2rem;
+
+    // color: #ff3478;
+    // background: transparent;
+    // border: 1px solid #ff3478;
+    color: #fff;
+    background: #ff3478;
+    border: none;
+  }
+}

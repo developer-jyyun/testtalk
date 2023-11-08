@@ -1,39 +1,67 @@
+import { useState } from 'react';
+import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import HostListItem from './components/hostListItem';
 import styles from './hostList.module.scss';
+import 'react-tabs/style/react-tabs.css';
 
-const hostList = () => {
+export default function HostList() {
+  const [selectedTab, setSelectedTab] = useState(0);
+
   return (
     <section className={styles.container}>
-      <h2>hostList</h2>
       <article>
-        <h3 className={styles.title}> # 경기 펜션 title</h3>
-        <h4 className={styles.subtitle}> sub title</h4>
-        <ul>
-          <li>
-            <img
-              src="https://avatars.githubusercontent.com/u/131247158?v=4"
-              alt=""
-            />
-            <div>
-              <p>host name</p>
-              <button type="submit">참여</button>
-            </div>
-          </li>
-        </ul>
-      </article>
-      <article>
-        <h3> # 경기 펜션</h3>
-        <ul>
-          <li className={styles.rem}>1rem</li>
-        </ul>
-      </article>
-      <article>
-        <h3> # 경기 펜션</h3>
-        <ul>
-          <li>font-size</li>
-        </ul>
+        <h2 className={styles.title}> 숙소 목록</h2>
+
+        <Tabs
+          selectedIndex={selectedTab}
+          onSelect={index => setSelectedTab(index)}
+        >
+          <TabList>
+            <Tab>경기</Tab>
+            <Tab>부산</Tab>
+            <Tab>제주</Tab>
+          </TabList>
+          <TabPanel>
+            <h3 className={styles.location}> # 경기</h3>
+            <ul className={styles.itemList}>
+              <HostListItem />
+              <HostListItem />
+              <HostListItem />
+              <HostListItem />
+              <HostListItem />
+              <HostListItem />
+              <HostListItem />
+              <HostListItem />
+            </ul>
+          </TabPanel>
+          <TabPanel>
+            <h3 className={styles.location}> # 부산</h3>
+            <ul className={styles.itemList}>
+              <HostListItem />
+              <HostListItem />
+              <HostListItem />
+              <HostListItem />
+              <HostListItem />
+              <HostListItem />
+              <HostListItem />
+              <HostListItem />
+            </ul>
+          </TabPanel>
+          <TabPanel>
+            <h3 className={styles.location}> # 제주</h3>
+            <ul className={styles.itemList}>
+              <HostListItem />
+              <HostListItem />
+              <HostListItem />
+              <HostListItem />
+              <HostListItem />
+              <HostListItem />
+              <HostListItem />
+              <HostListItem />
+            </ul>
+          </TabPanel>
+        </Tabs>
       </article>
     </section>
   );
-};
-
-export default hostList;
+}
