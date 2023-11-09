@@ -1,31 +1,38 @@
 @import '@/styles/index.scss';
 
-.uploadDb {
-  position: fixed;
-  bottom: 20vh;
-  right: 0;
-  padding: 10px;
-}
 .container {
   @include container;
+  // background: #eee;
   height: 100vh;
   padding: 2rem;
 
   .title {
-    color: $black;
-    color: $brand-pink;
-    font-size: $font-size-lg;
-    border-bottom: 1px solid $light-pink;
+    // color: $text-color;
+    color: #ff3478;
+    font-weight: bold;
+    border-bottom: 1px solid #ff3478;
     padding: 2rem;
-    margin-bottom: 4rem;
   }
+  .hash {
+    display: flex;
+    gap: 1rem;
+    margin: 3rem 0;
+    li {
+      display: inline-block;
+      a {
+        padding: 0.6rem 1.4rem;
+        background: rgba(1, 82, 204, 0.1);
+        border-radius: 18px;
+        color: #0152cc;
+        font-size: small;
+        font-weight: 600;
+      }
+    }
+  }
+
   .location {
     display: inline-block;
     color: $black;
-    margin: 3rem 0;
-    &::before {
-      content: '# ';
-    }
   }
 
   .itemList {
@@ -39,11 +46,6 @@
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
-      transition: transform 0.3s;
-    }
-    :hover {
-      scale: 1.02;
-      font-size: $font-size-base;
     }
   }
 

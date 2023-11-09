@@ -9,9 +9,11 @@ export default function HostListItem({ host }: { host: Host }) {
       <img className={styles.hostImg} src={host.picture} alt={host.name} />
       <div>
         <p className={styles.name}>{host.name}</p>
-        <p className={styles.name}>{host.location}</p>
+        <p className={styles.name}> {host.location}</p>
+        <p className={styles.name}> {host.address}</p>
+        <p className={styles.name}> {host.detail}</p>
         <button className={styles.btn} type="submit">
-          참여
+          상세보기
         </button>
       </div>
     </li>

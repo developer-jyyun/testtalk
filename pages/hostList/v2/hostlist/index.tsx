@@ -1,74 +1,9 @@
 import { useState, useEffect } from 'react';
-import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
-import 'react-tabs/style/react-tabs.css';
-import { addHostsToFirestore, fetchHostsFromFirestore } from '@/utils/firebase';
 import Link from 'next/link';
-import { Host } from './hostList.types';
-import HostListItem from './components/HostListItem';
+import HostListItem from './components/hostListItem';
 import styles from './hostList.module.scss';
 
 export default function HostList() {
-  const [hosts, setHosts] = useState<Host[]>([]);
-  const [selectedTab, setSelectedTab] = useState<number>(0);
-
-  const locations = ['부산', '제주', '경주', '전주'];
-
-  const fetchHosts = async (location: string) => {
-    try {
-      const response = await fetchHostsFromFirestore(location);
-      setHosts(response);
-    } catch (error) {
-      console.error('호스트 정보 불러오기 오류:', error);
-    }
-  };
-
-  useEffect(() => {
-    // 초기 로드: 부산
-    fetchHosts(locations[selectedTab]);
-  }, []);
-
-  return (
-    <section className={styles.container}>
-      <h2 className={styles.title}>HOT PLACE ✨ 인기 여행지</h2>
-      <Tabs
-        selectedIndex={selectedTab}
-        onSelect={index => {
-          const selectedLocation = locations[index];
-          setSelectedTab(index);
-          fetchHosts(selectedLocation);
-        }}
-      >
-        <TabList>
-          {locations.map(location => (
-            <Tab key={location}>{location}</Tab>
-          ))}
-        </TabList>
-        {locations.map(location => (
-          <TabPanel key={location}>
-            <h3 className={styles.location}>{location}</h3>
-            <ul className={styles.itemList}>
-              {hosts
-                .filter(host => host.location === location)
-                .map(host => (
-                  <HostListItem key={host.id} host={host} />
-                ))}
-            </ul>
-          </TabPanel>
-        ))}
-      </Tabs>
-      <button
-        className={styles.uploadDb}
-        type="submit"
-        onClick={addHostsToFirestore}
-      >
-        데이터업뎃 : 제거 예정
-      </button>
-      {/* <Sample /> */}
-    </section>
-  );
-}
-
-/* export function Sample() {
   useEffect(() => {
     // 페이지 로드 후 실행될 코드
     const handleScroll = () => {
@@ -169,4 +104,3 @@ export default function HostList() {
     </section>
   );
 }
- */

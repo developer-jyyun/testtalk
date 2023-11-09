@@ -3,5 +3,6 @@ export interface Host {
   name: string;
   picture: string;
   location: string;
+  address: string;
   detail: string;
 }
