@@ -1,4 +1,3 @@
-import React from 'react';
 import Link from 'next/link';
 import {
   BsHouses,
@@ -6,9 +5,10 @@ import {
   BsChatSquareHeart,
   BsChatSquareQuote,
 } from 'react-icons/bs';
+import React from 'react';
 import styles from './Navigation.module.scss';
 
-function Navigation() {
+export default function Navigation() {
   return (
     <nav className={styles.nav}>
       <ul className={styles.inner}>
@@ -40,5 +40,3 @@ function Navigation() {
     </nav>
   );
 }
-
-export default Navigation;
